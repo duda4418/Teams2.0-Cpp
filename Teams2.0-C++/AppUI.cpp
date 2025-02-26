@@ -1,4 +1,5 @@
 #include "AppUI.h"
+#include "NewChatWindow.h"
 
 ChatApp::ChatApp(QWidget* parent)
     : QMainWindow(parent)
@@ -7,6 +8,8 @@ ChatApp::ChatApp(QWidget* parent)
     setCentralWidget(centralWidget);
     setWindowTitle("Chat App");
     resize(900, 600);
+
+
 
     newChatButton = new QPushButton("New Chat");
     newChatButton->setStyleSheet("background-color: #F7B500; font-size: 16px; padding: 10px; border-radius: 10px;");
@@ -23,10 +26,11 @@ ChatApp::ChatApp(QWidget* parent)
     sidebarWidget->setFixedWidth(250);
     sidebarWidget->setStyleSheet("background-color: #2F4F5F; padding: 10px; border-radius: 10px;");
 
+
+
     chatDisplay = new QTextEdit();
     chatDisplay->setReadOnly(true);
     chatDisplay->setStyleSheet("background-color: white; border: 1px solid gray; font-size: 14px;");
-
 
 
     messageInput = new QLineEdit();
@@ -49,7 +53,20 @@ ChatApp::ChatApp(QWidget* parent)
     mainLayout->addLayout(chatLayout);
 
     connect(sendButton, &QPushButton::clicked, this, &ChatApp::sendMessage);
-    connect(newChatButton, &QPushButton::clicked, this, &ChatApp::startNewChat);
+    connect(newChatButton, &QPushButton::clicked, this, &ChatApp::openNewChatWindow);
+}
+
+void ChatApp::openNewChatWindow()
+{
+    NewChatWindow* newChatWindow = new NewChatWindow(this);
+    connect(newChatWindow, &NewChatWindow::contactSelected, this, &ChatApp::startNewChat);
+    newChatWindow->exec();
+}
+
+void ChatApp::startNewChat(const QString& contactName)
+{
+    chatDisplay->clear();
+    chatList->addItem(contactName);
 }
 
 void ChatApp::sendMessage()
@@ -60,12 +77,6 @@ void ChatApp::sendMessage()
         chatDisplay->append("You: " + message);
         messageInput->clear();
     }
-}
-
-void ChatApp::startNewChat()
-{
-    chatDisplay->clear();
-    chatList->addItem("New Chat");
 }
 
 ChatApp::~ChatApp() {}

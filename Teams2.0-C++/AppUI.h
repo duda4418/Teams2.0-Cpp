@@ -20,7 +20,8 @@ public:
 
 private slots:
     void sendMessage();
-    void startNewChat();
+    void openNewChatWindow();
+    void startNewChat(const QString& contactName);
 
 private:
     QWidget* centralWidget;
