@@ -1,10 +1,10 @@
-#include "Teams20C.h"
-#include <QtWidgets/QApplication>
+#include "AppUI.h"
+#include <QApplication>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
-    Teams20C w;
-    w.show();
+    ChatApp w;  
+    w.show();   
     return a.exec();
 }
