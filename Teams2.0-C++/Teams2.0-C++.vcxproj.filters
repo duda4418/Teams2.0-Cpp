@@ -21,6 +21,15 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Source Files\Client">
+      <UniqueIdentifier>{7fe5dcc3-7076-4048-af6f-6051d00f95ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ClientHeaders">
+      <UniqueIdentifier>{f090f2ba-5198-4950-b25f-ae68b844a158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FakeDB">
+      <UniqueIdentifier>{244e51f2-3bb9-484b-bdd7-f780600e83ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Teams20C.qrc">
@@ -29,24 +38,32 @@
     <QtUic Include="Teams20C.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="AppUI.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <ClCompile Include="AppUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AppUI.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
     <ClCompile Include="NewChatWindow.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeDb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="NewChatWindow.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="AppUI.h">
+      <Filter>Header Files\ClientHeaders</Filter>
     </QtMoc>
+    <QtMoc Include="NewChatWindow.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FakeDb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

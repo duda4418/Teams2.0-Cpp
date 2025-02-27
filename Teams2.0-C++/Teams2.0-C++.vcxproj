@@ -63,6 +63,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\dudad\vcpkg\packages\nlohmann-json_x64-windows\include\nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -92,6 +97,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FakeDb.cpp" />
     <ClCompile Include="NewChatWindow.cpp" />
     <QtRcc Include="Teams20C.qrc" />
     <QtUic Include="Teams20C.ui" />
@@ -101,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NewChatWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FakeDb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
