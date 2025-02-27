@@ -97,7 +97,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Authenticate.cpp" />
     <ClCompile Include="FakeDb.cpp" />
+    <ClCompile Include="Globals.cpp" />
     <ClCompile Include="NewChatWindow.cpp" />
     <QtRcc Include="Teams20C.qrc" />
     <QtUic Include="Teams20C.ui" />
@@ -109,7 +111,12 @@
     <QtMoc Include="NewChatWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Authenticate.h" />
     <ClInclude Include="FakeDb.h" />
+    <ClInclude Include="Globals.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

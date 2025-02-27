@@ -50,7 +50,13 @@
       <Filter>Source Files\Client</Filter>
     </ClCompile>
     <ClCompile Include="FakeDb.cpp">
+      <Filter>Source Files\FakeDB</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Authenticate.cpp">
+      <Filter>Source Files\Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,5 +71,16 @@
     <ClInclude Include="FakeDb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Authenticate.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="users.json">
+      <Filter>Source Files\FakeDB</Filter>
+    </None>
   </ItemGroup>
 </Project>
