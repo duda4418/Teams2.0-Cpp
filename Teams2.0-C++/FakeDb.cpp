@@ -4,8 +4,9 @@
 
 bool FakeDb::writeToJsonFile(const string& filename, const json& newData) {
     // Read existing data from the file
+    string filenameJSON = filename + ".json";
     json existingData;
-    ifstream inputFile(filename);
+    ifstream inputFile(filenameJSON);
     if (inputFile) {
         try {
             inputFile >> existingData;
@@ -26,9 +27,9 @@ bool FakeDb::writeToJsonFile(const string& filename, const json& newData) {
     existingData[filename].push_back(newData);
 
     // Write the updated data back to the file
-    ofstream outputFile(filename);
+    ofstream outputFile(filenameJSON);
     if (!outputFile) {
-        cerr << "Error opening file for writing: " << filename << endl;
+        cerr << "Error opening file for writing: " << filenameJSON << endl;
         return false;
     }
     outputFile << existingData.dump(4); // Pretty print with 4 spaces
@@ -38,9 +39,10 @@ bool FakeDb::writeToJsonFile(const string& filename, const json& newData) {
 
 // Reads JSON data from a file
 bool FakeDb::readFromJsonFile(const string& filename, json& data) {
-    ifstream file(filename);
+    string filenameJSON = filename + ".json";
+    ifstream file(filenameJSON);
     if (!file) {
-        cerr << "Error opening file for reading: " << filename << endl;
+        cerr << "Error opening file for reading: " << filenameJSON << endl;
         return false;
     }
     try {
