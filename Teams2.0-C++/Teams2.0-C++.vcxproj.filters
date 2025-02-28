@@ -58,6 +58,9 @@
     <ClCompile Include="Authenticate.cpp">
       <Filter>Source Files\Client</Filter>
     </ClCompile>
+    <ClCompile Include="Contacts.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AppUI.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Authenticate.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Contacts.h">
       <Filter>Header Files\ClientHeaders</Filter>
     </ClInclude>
   </ItemGroup>

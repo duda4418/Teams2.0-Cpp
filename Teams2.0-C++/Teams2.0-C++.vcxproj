@@ -97,6 +97,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Authenticate.cpp" />
+    <ClCompile Include="Contacts.cpp" />
     <ClCompile Include="FakeDb.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="NewChatWindow.cpp" />
@@ -111,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Authenticate.h" />
+    <ClInclude Include="Contacts.h" />
     <ClInclude Include="FakeDb.h" />
     <ClInclude Include="Globals.h" />
   </ItemGroup>

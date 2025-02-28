@@ -27,24 +27,20 @@ string Authenticate::generateUUID() {
 }
 
 string Authenticate::get_userID() {
-    json data;
-    vector<string> ids;
 
-    // Read the data from the users.json file
-    bool success = FakeDb::readFromJsonFile("users", data, ids);
-    if (!success) {
-        return "Error reading from file";
+    vector<json> data = FakeDb::readFromJsonFile("users");
+    if (data.empty()) {
+        return "Error reading from file or no users found";
     }
 
+
     // Check if the USERNAME exists in the "users" list
-    for (const auto& user : data["users"]) {
+    for (const auto& user : data) {
         if (user["name"] == USERNAME) {
             // Return the user ID if found
             return user["id"];
         }
     }
-
-  
 
 
     // If USERNAME doesn't exist, add it
@@ -55,7 +51,7 @@ string Authenticate::get_userID() {
     };
 
     // Write the new user to the file
-    success = FakeDb::writeToJsonFile("users", newUser);
+    bool success = FakeDb::writeToJsonFile("users", newUser);
     if (!success) {
         return "Error writing to file";
     }

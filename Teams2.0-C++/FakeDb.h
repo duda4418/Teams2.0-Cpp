@@ -16,7 +16,7 @@ public:
     static bool writeToJsonFile(const string& filename, const json& newData);
 
     // Reads JSON data from a file
-    static bool readFromJsonFile(const string& filename, json& data, vector<string>& ids);
+    static vector<json> readFromJsonFile(const string& filename);
 };
 
 #endif // FAKE_DB_H

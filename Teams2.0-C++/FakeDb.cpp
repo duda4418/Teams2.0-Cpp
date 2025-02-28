@@ -37,8 +37,37 @@ bool FakeDb::writeToJsonFile(const string& filename, const json& newData) {
     return true;
 }
 
+
+vector<json> FakeDb::readFromJsonFile(const string& filename) {
+    std::string filenameJSON = filename + ".json";
+    std::ifstream file(filenameJSON);
+    std::vector<json> objs;
+
+    if (!file) {
+        cerr << "Error opening file for reading: " << filenameJSON << endl;
+        return objs;
+    }
+
+    json data;
+    try {
+        file >> data;
+    }
+    catch (json::parse_error& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return objs;
+    }
+    file.close();
+
+    if (data[filename].is_array()) {
+        for (const auto& obj : data[filename]) {
+            objs.push_back(obj);
+        }
+    }
+
+    return objs;
+}
 // Reads JSON data from a file
-bool FakeDb::readFromJsonFile(const string& filename, json& data, vector<string>& ids) {
+/*bool FakeDb::readFromJsonFile(const string& filename, json& data, vector<string>& ids) {
     string filenameJSON = filename + ".json";
     ifstream file(filenameJSON);
     if (!file) {
@@ -65,7 +94,7 @@ bool FakeDb::readFromJsonFile(const string& filename, json& data, vector<string>
         }
     }
     return true;
-}
+}*/
 
 
 
