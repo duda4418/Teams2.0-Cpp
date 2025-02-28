@@ -2,5 +2,5 @@
 
 using namespace std;
 
-string USERNAME = "USERTEST";
+string USERNAME = "Duda";
 string PASSWORD = "test123";

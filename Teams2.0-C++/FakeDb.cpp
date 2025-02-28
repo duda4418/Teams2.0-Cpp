@@ -38,7 +38,7 @@ bool FakeDb::writeToJsonFile(const string& filename, const json& newData) {
 }
 
 // Reads JSON data from a file
-bool FakeDb::readFromJsonFile(const string& filename, json& data) {
+bool FakeDb::readFromJsonFile(const string& filename, json& data, vector<string>& ids) {
     string filenameJSON = filename + ".json";
     ifstream file(filenameJSON);
     if (!file) {
@@ -53,6 +53,17 @@ bool FakeDb::readFromJsonFile(const string& filename, json& data) {
         return false;
     }
     file.close();
+
+    if (filename == "users")
+    {
+        if (data.find(filename) != data.end()) {
+            for (const auto& user : data[filename]) {
+                if (user.contains("name")) {
+                    ids.push_back(user["name"]);
+                }
+            }
+        }
+    }
     return true;
 }
 

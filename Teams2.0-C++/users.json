@@ -9,6 +9,11 @@
             "id": "1304a893-1a02-477e-ae80-a04e6ec1058c",
             "name": "David R",
             "password": "test123"
+        },
+        {
+            "id": "1a449f36-4957-484c-adb5-0000369bbbe3",
+            "name": "Duda",
+            "password": "test123"
         }
     ]
 }

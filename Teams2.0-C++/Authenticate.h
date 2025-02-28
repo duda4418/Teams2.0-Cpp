@@ -10,7 +10,8 @@ class Authenticate {
 	public:
 		Authenticate();
 		~Authenticate();
-
+		string generateUUID();
+		string get_userID();
 
 
 };
