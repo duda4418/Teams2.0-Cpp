@@ -1,0 +1,36 @@
+{
+    "messages": [
+        {
+            "content": "Buna",
+            "discussion_id": "80a5034f-50b2-4f81-8f2d-0000fa8ea8fc",
+            "id": "5d979eda-8007-44c4-a6c9-00006aacf689",
+            "read": false,
+            "sender_id": "8bc1bd2f-db05-4798-8e88-00004b821d19",
+            "timestamp": 1746558869
+        },
+        {
+            "content": "Cf",
+            "discussion_id": "80a5034f-50b2-4f81-8f2d-0000fa8ea8fc",
+            "id": "2e64000f-d17f-4ffb-a465-00001353309b",
+            "read": false,
+            "sender_id": "8bc1bd2f-db05-4798-8e88-00004b821d19",
+            "timestamp": 1746558872
+        },
+        {
+            "content": "Bine",
+            "discussion_id": "80a5034f-50b2-4f81-8f2d-0000fa8ea8fc",
+            "id": "d5d923da-d853-4ad0-ac10-0000d4384c0a",
+            "read": false,
+            "sender_id": "1a449f36-4957-484c-adb5-0000369bbbe3",
+            "timestamp": 1746558900
+        },
+        {
+            "content": "Csf",
+            "discussion_id": "80a5034f-50b2-4f81-8f2d-0000fa8ea8fc",
+            "id": "e54a3d67-4558-4720-9fb1-0000e08ea1c2",
+            "read": false,
+            "sender_id": "1a449f36-4957-484c-adb5-0000369bbbe3",
+            "timestamp": 1746558910
+        }
+    ]
+}

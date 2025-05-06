@@ -5,6 +5,9 @@
 #include <QListWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 class NewChatWindow : public QDialog
 {
@@ -18,6 +21,7 @@ signals:
 
 private slots:
     void selectContact();
+    void loadContactsFromDatabase();
 
 private:
     QListWidget* contactList;

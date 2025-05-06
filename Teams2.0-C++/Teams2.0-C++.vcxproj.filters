@@ -61,6 +61,12 @@
     <ClCompile Include="Contacts.cpp">
       <Filter>Source Files\Client</Filter>
     </ClCompile>
+    <ClCompile Include="Discussions.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Messages.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AppUI.h">
@@ -83,9 +89,21 @@
     <ClInclude Include="Contacts.h">
       <Filter>Header Files\ClientHeaders</Filter>
     </ClInclude>
+    <ClInclude Include="Discussions.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Messages.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="users.json">
+      <Filter>Source Files\FakeDB</Filter>
+    </None>
+    <None Include="discussions.json">
+      <Filter>Source Files\FakeDB</Filter>
+    </None>
+    <None Include="messages.json">
       <Filter>Source Files\FakeDB</Filter>
     </None>
   </ItemGroup>

@@ -98,8 +98,10 @@
   <ItemGroup>
     <ClCompile Include="Authenticate.cpp" />
     <ClCompile Include="Contacts.cpp" />
+    <ClCompile Include="Discussions.cpp" />
     <ClCompile Include="FakeDb.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="Messages.cpp" />
     <ClCompile Include="NewChatWindow.cpp" />
     <QtRcc Include="Teams20C.qrc" />
     <QtUic Include="Teams20C.ui" />
@@ -113,10 +115,14 @@
   <ItemGroup>
     <ClInclude Include="Authenticate.h" />
     <ClInclude Include="Contacts.h" />
+    <ClInclude Include="Discussions.h" />
     <ClInclude Include="FakeDb.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Messages.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="discussions.json" />
+    <None Include="messages.json" />
     <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

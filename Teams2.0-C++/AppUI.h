@@ -9,6 +9,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QWidget>
+#include <QMap>
+#include "Discussions.h"
+#include "Messages.h"
 
 class ChatApp : public QMainWindow
 {
@@ -18,10 +21,15 @@ public:
     ChatApp(QWidget* parent = nullptr);
     ~ChatApp();
 
+    // Set the current user ID
+    void setCurrentUserId(const std::string& userId);
+
 private slots:
     void sendMessage();
     void openNewChatWindow();
     void startNewChat(const QString& contactName);
+    void onChatSelected(QListWidgetItem* item);
+    void loadUserChats();
 
 private:
     QWidget* centralWidget;
@@ -30,6 +38,17 @@ private:
     QTextEdit* chatDisplay;
     QLineEdit* messageInput;
     QPushButton* sendButton;
+
+    std::string currentUserId;
+    QString currentContactName;
+    std::string currentDiscussionId;
+    Discussions discussionsManager;
+    Messages messagesManager;
+
+    // Map to keep track of contact names and their discussion IDs
+    QMap<QString, QString> contactDiscussionMap;
+
+    void displayChatHistory(const std::string& discussionId);
 };
 
 #endif // CHATAPP_H
