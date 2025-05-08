@@ -10,8 +10,10 @@
 #include <QHBoxLayout>
 #include <QWidget>
 #include <QMap>
+#include <memory>  // For std::unique_ptr
 #include "Discussions.h"
 #include "Messages.h"
+#include "Message.h"  // Include the new Message header
 
 class ChatApp : public QMainWindow
 {

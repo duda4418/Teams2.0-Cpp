@@ -67,6 +67,9 @@
     <ClCompile Include="Messages.cpp">
       <Filter>Source Files\Client</Filter>
     </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AppUI.h">
@@ -93,6 +96,12 @@
       <Filter>Header Files\ClientHeaders</Filter>
     </ClInclude>
     <ClInclude Include="Messages.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files\ClientHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageFactory.h">
       <Filter>Header Files\ClientHeaders</Filter>
     </ClInclude>
   </ItemGroup>

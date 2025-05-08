@@ -2,6 +2,8 @@
 #include "NewChatWindow.h"
 #include "Globals.h"
 #include "FakeDb.h"
+#include "Message.h"
+#include "MessageFactory.h"
 
 ChatApp::ChatApp(QWidget* parent)
     : QMainWindow(parent)
@@ -163,33 +165,46 @@ void ChatApp::displayChatHistory(const std::string& discussionId)
         }
     }
 
-    // Display each message
-    for (const auto& message : messages) {
-        if (message.contains("sender_id") && message.contains("content")) {
-            std::string senderName = userIdToName[message["sender_id"]];
-            std::string content = message["content"];
+    // Create and display each message using polymorphism with the factory pattern
+    std::vector<std::unique_ptr<Message>> messageObjects;
 
-            if (message["sender_id"] == currentUserId) {
-                chatDisplay->append("You: " + QString::fromStdString(content));
-            }
-            else {
-                chatDisplay->append(QString::fromStdString(senderName + ": " + content));
-            }
+    for (const auto& message : messages) {
+        if (message.contains("sender_id") && message.contains("content") && message.contains("timestamp")) {
+            std::string senderId = message["sender_id"];
+            std::string content = message["content"];
+            long timestamp = message["timestamp"];
+
+            // Use the factory to create the appropriate message type
+            messageObjects.push_back(
+                MessageFactory::createMessage(senderId, content, timestamp, currentUserId, userIdToName)
+            );
         }
+    }
+
+    // Display all messages using polymorphism
+    for (const auto& msg : messageObjects) {
+        msg->display(chatDisplay);
     }
 }
 
+// The sendMessage() method should also be updated to use the MessageFactory:
 void ChatApp::sendMessage()
 {
-    QString message = messageInput->text().trimmed();
-    if (!message.isEmpty() && !currentDiscussionId.empty())
+    QString messageText = messageInput->text().trimmed();
+    if (!messageText.isEmpty() && !currentDiscussionId.empty())
     {
         // Add message to messages.json
-        bool success = messagesManager.addMessage(currentDiscussionId, currentUserId, message.toStdString());
+        bool success = messagesManager.addMessage(currentDiscussionId, currentUserId, messageText.toStdString());
 
         if (success) {
-            // Display the sent message
-            chatDisplay->append("You: " + message);
+            // Create empty map since we're sending a message (don't need the name mapping)
+            std::map<std::string, std::string> emptyMap;
+
+            // Create and display the sent message using polymorphism through the factory
+            auto sentMsg = MessageFactory::createMessage(
+                currentUserId, messageText.toStdString(), time(nullptr), currentUserId, emptyMap
+            );
+            sentMsg->display(chatDisplay);
             messageInput->clear();
         }
     }
